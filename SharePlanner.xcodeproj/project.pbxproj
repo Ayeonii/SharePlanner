@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3439C500E3B517EE1D0BA7D9 /* Pods_SharePlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDC8C412726B522F4A236230 /* Pods_SharePlanner.framework */; };
 		D60D84C9294EDCB100352677 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84C8294EDCB100352677 /* AppDelegate.swift */; };
 		D60D84CB294EDCB100352677 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84CA294EDCB100352677 /* SceneDelegate.swift */; };
 		D60D84CD294EDCB100352677 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84CC294EDCB100352677 /* ViewController.swift */; };
@@ -15,8 +16,7 @@
 		D60D84D5294EDCB200352677 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D60D84D4294EDCB200352677 /* Assets.xcassets */; };
 		D60D84D8294EDCB200352677 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D60D84D6294EDCB200352677 /* LaunchScreen.storyboard */; };
 		D60D84E3294EDCB300352677 /* SharePlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84E2294EDCB300352677 /* SharePlannerTests.swift */; };
-		D60D84ED294EDCB300352677 /* SharePlannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84EC294EDCB300352677 /* SharePlannerUITests.swift */; };
-		D60D84EF294EDCB300352677 /* SharePlannerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84EE294EDCB300352677 /* SharePlannerUITestsLaunchTests.swift */; };
+		FBAF7CF2558BE5565268467C /* Pods_SharePlannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7F1EC26565B177DEA93EED /* Pods_SharePlannerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,16 +27,16 @@
 			remoteGlobalIDString = D60D84C4294EDCB100352677;
 			remoteInfo = SharePlanner;
 		};
-		D60D84E9294EDCB300352677 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D60D84BD294EDCB100352677 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D60D84C4294EDCB100352677;
-			remoteInfo = SharePlanner;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09468E88B9CA50E355E199ED /* Pods-SharePlannerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePlannerTests.release.xcconfig"; path = "Target Support Files/Pods-SharePlannerTests/Pods-SharePlannerTests.release.xcconfig"; sourceTree = "<group>"; };
+		15B7364B5BA4C13495F71275 /* Pods-SharePlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePlanner.debug.xcconfig"; path = "Target Support Files/Pods-SharePlanner/Pods-SharePlanner.debug.xcconfig"; sourceTree = "<group>"; };
+		1D169FC4FBD651D81088E3DA /* Pods-SharePlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePlanner.release.xcconfig"; path = "Target Support Files/Pods-SharePlanner/Pods-SharePlanner.release.xcconfig"; sourceTree = "<group>"; };
+		AC7F1EC26565B177DEA93EED /* Pods_SharePlannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharePlannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB8F17BE6C9812D0435826A8 /* Pods-SharePlanner-SharePlannerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePlanner-SharePlannerUITests.release.xcconfig"; path = "Target Support Files/Pods-SharePlanner-SharePlannerUITests/Pods-SharePlanner-SharePlannerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CDC8C412726B522F4A236230 /* Pods_SharePlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharePlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4C0555118CA729B765293C9 /* Pods-SharePlanner-SharePlannerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePlanner-SharePlannerUITests.debug.xcconfig"; path = "Target Support Files/Pods-SharePlanner-SharePlannerUITests/Pods-SharePlanner-SharePlannerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D60D84C5294EDCB100352677 /* SharePlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharePlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60D84C8294EDCB100352677 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D60D84CA294EDCB100352677 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,9 +48,8 @@
 		D60D84D9294EDCB200352677 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D60D84DE294EDCB300352677 /* SharePlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharePlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60D84E2294EDCB300352677 /* SharePlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePlannerTests.swift; sourceTree = "<group>"; };
-		D60D84E8294EDCB300352677 /* SharePlannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharePlannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D60D84EC294EDCB300352677 /* SharePlannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePlannerUITests.swift; sourceTree = "<group>"; };
-		D60D84EE294EDCB300352677 /* SharePlannerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePlannerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E82A9824D06341CD9C1A9E5B /* Pods-SharePlannerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePlannerTests.debug.xcconfig"; path = "Target Support Files/Pods-SharePlannerTests/Pods-SharePlannerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F1A7E6A2F738C4B65ACD2C02 /* Pods_SharePlanner_SharePlannerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharePlanner_SharePlannerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3439C500E3B517EE1D0BA7D9 /* Pods_SharePlanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,26 +65,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D60D84E5294EDCB300352677 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				FBAF7CF2558BE5565268467C /* Pods_SharePlannerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7BF750FF67BDE3DEFE56B0DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDC8C412726B522F4A236230 /* Pods_SharePlanner.framework */,
+				F1A7E6A2F738C4B65ACD2C02 /* Pods_SharePlanner_SharePlannerUITests.framework */,
+				AC7F1EC26565B177DEA93EED /* Pods_SharePlannerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		850EECACC1D9EEDF1E566F0D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15B7364B5BA4C13495F71275 /* Pods-SharePlanner.debug.xcconfig */,
+				1D169FC4FBD651D81088E3DA /* Pods-SharePlanner.release.xcconfig */,
+				D4C0555118CA729B765293C9 /* Pods-SharePlanner-SharePlannerUITests.debug.xcconfig */,
+				BB8F17BE6C9812D0435826A8 /* Pods-SharePlanner-SharePlannerUITests.release.xcconfig */,
+				E82A9824D06341CD9C1A9E5B /* Pods-SharePlannerTests.debug.xcconfig */,
+				09468E88B9CA50E355E199ED /* Pods-SharePlannerTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D60D84BC294EDCB100352677 = {
 			isa = PBXGroup;
 			children = (
 				D60D84C7294EDCB100352677 /* SharePlanner */,
 				D60D84E1294EDCB300352677 /* SharePlannerTests */,
-				D60D84EB294EDCB300352677 /* SharePlannerUITests */,
 				D60D84C6294EDCB100352677 /* Products */,
+				850EECACC1D9EEDF1E566F0D /* Pods */,
+				7BF750FF67BDE3DEFE56B0DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,7 +111,6 @@
 			children = (
 				D60D84C5294EDCB100352677 /* SharePlanner.app */,
 				D60D84DE294EDCB300352677 /* SharePlannerTests.xctest */,
-				D60D84E8294EDCB300352677 /* SharePlannerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,15 +138,6 @@
 			path = SharePlannerTests;
 			sourceTree = "<group>";
 		};
-		D60D84EB294EDCB300352677 /* SharePlannerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D60D84EC294EDCB300352677 /* SharePlannerUITests.swift */,
-				D60D84EE294EDCB300352677 /* SharePlannerUITestsLaunchTests.swift */,
-			);
-			path = SharePlannerUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,9 +145,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D60D84F2294EDCB300352677 /* Build configuration list for PBXNativeTarget "SharePlanner" */;
 			buildPhases = (
+				A725129340F100314F4FE830 /* [CP] Check Pods Manifest.lock */,
 				D60D84C1294EDCB100352677 /* Sources */,
 				D60D84C2294EDCB100352677 /* Frameworks */,
 				D60D84C3294EDCB100352677 /* Resources */,
+				AF1BBBD8B63664C7F8F8C32E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -154,9 +164,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D60D84F5294EDCB300352677 /* Build configuration list for PBXNativeTarget "SharePlannerTests" */;
 			buildPhases = (
+				5935FFC1FB0A0C728DB4B8F7 /* [CP] Check Pods Manifest.lock */,
 				D60D84DA294EDCB300352677 /* Sources */,
 				D60D84DB294EDCB300352677 /* Frameworks */,
 				D60D84DC294EDCB300352677 /* Resources */,
+				F1F4426417435811F8B25A9B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,24 +179,6 @@
 			productName = SharePlannerTests;
 			productReference = D60D84DE294EDCB300352677 /* SharePlannerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		D60D84E7294EDCB300352677 /* SharePlannerUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D60D84F8294EDCB300352677 /* Build configuration list for PBXNativeTarget "SharePlannerUITests" */;
-			buildPhases = (
-				D60D84E4294EDCB300352677 /* Sources */,
-				D60D84E5294EDCB300352677 /* Frameworks */,
-				D60D84E6294EDCB300352677 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D60D84EA294EDCB300352677 /* PBXTargetDependency */,
-			);
-			name = SharePlannerUITests;
-			productName = SharePlannerUITests;
-			productReference = D60D84E8294EDCB300352677 /* SharePlannerUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -200,10 +194,6 @@
 						CreatedOnToolsVersion = 14.0;
 					};
 					D60D84DD294EDCB300352677 = {
-						CreatedOnToolsVersion = 14.0;
-						TestTargetID = D60D84C4294EDCB100352677;
-					};
-					D60D84E7294EDCB300352677 = {
 						CreatedOnToolsVersion = 14.0;
 						TestTargetID = D60D84C4294EDCB100352677;
 					};
@@ -224,7 +214,6 @@
 			targets = (
 				D60D84C4294EDCB100352677 /* SharePlanner */,
 				D60D84DD294EDCB300352677 /* SharePlannerTests */,
-				D60D84E7294EDCB300352677 /* SharePlannerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -247,14 +236,88 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D60D84E6294EDCB300352677 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5935FFC1FB0A0C728DB4B8F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SharePlannerTests-checkManifestLockResult.txt",
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
-/* End PBXResourcesBuildPhase section */
+		A725129340F100314F4FE830 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SharePlanner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF1BBBD8B63664C7F8F8C32E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SharePlanner/Pods-SharePlanner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SharePlanner/Pods-SharePlanner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SharePlanner/Pods-SharePlanner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1F4426417435811F8B25A9B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SharePlannerTests/Pods-SharePlannerTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SharePlannerTests/Pods-SharePlannerTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SharePlannerTests/Pods-SharePlannerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D60D84C1294EDCB100352677 /* Sources */ = {
@@ -276,15 +339,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D60D84E4294EDCB300352677 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D60D84ED294EDCB300352677 /* SharePlannerUITests.swift in Sources */,
-				D60D84EF294EDCB300352677 /* SharePlannerUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -292,11 +346,6 @@
 			isa = PBXTargetDependency;
 			target = D60D84C4294EDCB100352677 /* SharePlanner */;
 			targetProxy = D60D84DF294EDCB300352677 /* PBXContainerItemProxy */;
-		};
-		D60D84EA294EDCB300352677 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D60D84C4294EDCB100352677 /* SharePlanner */;
-			targetProxy = D60D84E9294EDCB300352677 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -436,6 +485,7 @@
 		};
 		D60D84F3294EDCB300352677 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15B7364B5BA4C13495F71275 /* Pods-SharePlanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -449,6 +499,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,6 +515,7 @@
 		};
 		D60D84F4294EDCB300352677 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D169FC4FBD651D81088E3DA /* Pods-SharePlanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -477,6 +529,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -492,14 +545,15 @@
 		};
 		D60D84F6294EDCB300352677 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E82A9824D06341CD9C1A9E5B /* Pods-SharePlannerTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 653TUFJ9Y7;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ayeon.SharePlannerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -512,14 +566,15 @@
 		};
 		D60D84F7294EDCB300352677 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09468E88B9CA50E355E199ED /* Pods-SharePlannerTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 653TUFJ9Y7;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ayeon.SharePlannerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -527,42 +582,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SharePlanner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SharePlanner";
-			};
-			name = Release;
-		};
-		D60D84F9294EDCB300352677 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 653TUFJ9Y7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ayeon.SharePlannerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SharePlanner;
-			};
-			name = Debug;
-		};
-		D60D84FA294EDCB300352677 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 653TUFJ9Y7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ayeon.SharePlannerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SharePlanner;
 			};
 			name = Release;
 		};
@@ -592,15 +611,6 @@
 			buildConfigurations = (
 				D60D84F6294EDCB300352677 /* Debug */,
 				D60D84F7294EDCB300352677 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D60D84F8294EDCB300352677 /* Build configuration list for PBXNativeTarget "SharePlannerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D60D84F9294EDCB300352677 /* Debug */,
-				D60D84FA294EDCB300352677 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
