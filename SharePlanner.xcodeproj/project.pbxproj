@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		3439C500E3B517EE1D0BA7D9 /* Pods_SharePlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDC8C412726B522F4A236230 /* Pods_SharePlanner.framework */; };
+		C49A01D3295416B90050F561 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A01D2295416B90050F561 /* BaseNavigationController.swift */; };
+		C49A01D82954181E0050F561 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A01D72954181E0050F561 /* CalendarViewController.swift */; };
+		C49A01DA295418740050F561 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A01D9295418740050F561 /* BaseViewController.swift */; };
+		C49A01DF29541B460050F561 /* CustomLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A01DE29541B460050F561 /* CustomLog.swift */; };
+		C49A01E1295424420050F561 /* CalendarReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A01E0295424420050F561 /* CalendarReactor.swift */; };
+		C49A01E3295430630050F561 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A01E2295430630050F561 /* Scene.swift */; };
 		D60D84C9294EDCB100352677 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84C8294EDCB100352677 /* AppDelegate.swift */; };
 		D60D84CB294EDCB100352677 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84CA294EDCB100352677 /* SceneDelegate.swift */; };
 		D60D84CD294EDCB100352677 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84CC294EDCB100352677 /* ViewController.swift */; };
-		D60D84D0294EDCB100352677 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D60D84CE294EDCB100352677 /* Main.storyboard */; };
-		D60D84D3294EDCB100352677 /* SharePlanner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D60D84D1294EDCB100352677 /* SharePlanner.xcdatamodeld */; };
 		D60D84D5294EDCB200352677 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D60D84D4294EDCB200352677 /* Assets.xcassets */; };
 		D60D84D8294EDCB200352677 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D60D84D6294EDCB200352677 /* LaunchScreen.storyboard */; };
 		D60D84E3294EDCB300352677 /* SharePlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84E2294EDCB300352677 /* SharePlannerTests.swift */; };
@@ -35,14 +39,18 @@
 		1D169FC4FBD651D81088E3DA /* Pods-SharePlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePlanner.release.xcconfig"; path = "Target Support Files/Pods-SharePlanner/Pods-SharePlanner.release.xcconfig"; sourceTree = "<group>"; };
 		AC7F1EC26565B177DEA93EED /* Pods_SharePlannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharePlannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB8F17BE6C9812D0435826A8 /* Pods-SharePlanner-SharePlannerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePlanner-SharePlannerUITests.release.xcconfig"; path = "Target Support Files/Pods-SharePlanner-SharePlannerUITests/Pods-SharePlanner-SharePlannerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C49A01D2295416B90050F561 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		C49A01D72954181E0050F561 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		C49A01D9295418740050F561 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C49A01DE29541B460050F561 /* CustomLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLog.swift; sourceTree = "<group>"; };
+		C49A01E0295424420050F561 /* CalendarReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarReactor.swift; sourceTree = "<group>"; };
+		C49A01E2295430630050F561 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		CDC8C412726B522F4A236230 /* Pods_SharePlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharePlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C0555118CA729B765293C9 /* Pods-SharePlanner-SharePlannerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePlanner-SharePlannerUITests.debug.xcconfig"; path = "Target Support Files/Pods-SharePlanner-SharePlannerUITests/Pods-SharePlanner-SharePlannerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D60D84C5294EDCB100352677 /* SharePlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharePlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60D84C8294EDCB100352677 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D60D84CA294EDCB100352677 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D60D84CC294EDCB100352677 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D60D84CF294EDCB100352677 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D60D84D2294EDCB100352677 /* SharePlanner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SharePlanner.xcdatamodel; sourceTree = "<group>"; };
 		D60D84D4294EDCB200352677 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D60D84D7294EDCB200352677 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D60D84D9294EDCB200352677 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,6 +103,96 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C49A01CB295406550050F561 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C49A01CC2954065D0050F561 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C49A01D2295416B90050F561 /* BaseNavigationController.swift */,
+				C49A01D9295418740050F561 /* BaseViewController.swift */,
+				C49A01E2295430630050F561 /* Scene.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		C49A01CD295406970050F561 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				C49A01CF295406C20050F561 /* Login */,
+				C49A01CE295406A50050F561 /* Calendar */,
+				C49A01D1295406FF0050F561 /* SideMenu */,
+				C49A01D0295406CA0050F561 /* Setting */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		C49A01CE295406A50050F561 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				C49A01D6295418100050F561 /* Model */,
+				C49A01D52954180B0050F561 /* ViewModel */,
+				C49A01D4295418070050F561 /* View */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		C49A01CF295406C20050F561 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		C49A01D0295406CA0050F561 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		C49A01D1295406FF0050F561 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		C49A01D4295418070050F561 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C49A01D72954181E0050F561 /* CalendarViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C49A01D52954180B0050F561 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C49A01E0295424420050F561 /* CalendarReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C49A01D6295418100050F561 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C49A01DD29541B320050F561 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C49A01DE29541B460050F561 /* CustomLog.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		D60D84BC294EDCB100352677 = {
 			isa = PBXGroup;
 			children = (
@@ -118,14 +216,16 @@
 		D60D84C7294EDCB100352677 /* SharePlanner */ = {
 			isa = PBXGroup;
 			children = (
+				C49A01CB295406550050F561 /* Service */,
+				C49A01CC2954065D0050F561 /* Base */,
+				C49A01CD295406970050F561 /* Pages */,
+				C49A01DD29541B320050F561 /* Utils */,
 				D60D84C8294EDCB100352677 /* AppDelegate.swift */,
 				D60D84CA294EDCB100352677 /* SceneDelegate.swift */,
 				D60D84CC294EDCB100352677 /* ViewController.swift */,
-				D60D84CE294EDCB100352677 /* Main.storyboard */,
 				D60D84D4294EDCB200352677 /* Assets.xcassets */,
 				D60D84D6294EDCB200352677 /* LaunchScreen.storyboard */,
 				D60D84D9294EDCB200352677 /* Info.plist */,
-				D60D84D1294EDCB100352677 /* SharePlanner.xcdatamodeld */,
 			);
 			path = SharePlanner;
 			sourceTree = "<group>";
@@ -225,7 +325,6 @@
 			files = (
 				D60D84D8294EDCB200352677 /* LaunchScreen.storyboard in Resources */,
 				D60D84D5294EDCB200352677 /* Assets.xcassets in Resources */,
-				D60D84D0294EDCB100352677 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,10 +423,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D60D84D3294EDCB100352677 /* SharePlanner.xcdatamodeld in Sources */,
+				C49A01D82954181E0050F561 /* CalendarViewController.swift in Sources */,
+				C49A01D3295416B90050F561 /* BaseNavigationController.swift in Sources */,
+				C49A01E1295424420050F561 /* CalendarReactor.swift in Sources */,
 				D60D84CD294EDCB100352677 /* ViewController.swift in Sources */,
 				D60D84C9294EDCB100352677 /* AppDelegate.swift in Sources */,
+				C49A01DF29541B460050F561 /* CustomLog.swift in Sources */,
 				D60D84CB294EDCB100352677 /* SceneDelegate.swift in Sources */,
+				C49A01DA295418740050F561 /* BaseViewController.swift in Sources */,
+				C49A01E3295430630050F561 /* Scene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,14 +454,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D60D84CE294EDCB100352677 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D60D84CF294EDCB100352677 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D60D84D6294EDCB200352677 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -495,7 +591,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SharePlanner/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -507,6 +603,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ayeon.SharePlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -525,7 +624,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SharePlanner/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -537,6 +636,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ayeon.SharePlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -616,19 +718,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		D60D84D1294EDCB100352677 /* SharePlanner.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D60D84D2294EDCB100352677 /* SharePlanner.xcdatamodel */,
-			);
-			currentVersion = D60D84D2294EDCB100352677 /* SharePlanner.xcdatamodel */;
-			path = SharePlanner.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = D60D84BD294EDCB100352677 /* Project object */;
 }
