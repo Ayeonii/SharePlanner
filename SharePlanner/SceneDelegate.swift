@@ -16,8 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let reactor = CalendarReactor()
-        let rootVC = Scene.calendar(reactor).instantiate()
+        let reactor = CalendarContainerReactor()
+        let rootVC = Scene.calendarContainer(reactor).instantiate()
         let naviView = UINavigationController(rootViewController: rootVC)
         naviView.setNavigationBarHidden(true, animated: false)
         
