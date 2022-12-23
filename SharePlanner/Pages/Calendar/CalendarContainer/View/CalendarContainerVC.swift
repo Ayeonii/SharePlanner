@@ -30,10 +30,11 @@ class CalendarContainerVC: BaseViewController<CalendarContainerReactor> {
         $0.setBackgroundImage(UIImage(named: "menuIcon"), for: .normal)
     }
     
-    var datePickerBtn = UIButton().then {
-        $0.setTitle("2022.12", for: .normal)
-        $0.titleLabel?.font = .systemFont(ofSize: 24, weight: .bold)
-        $0.setTitleColor(.white, for: .normal)
+    var monthBtn = UIButton().then {
+        //$0.setBackgroundImage(UIImage(named: "blueSticker"), for: .normal)
+        $0.setTitle("DECEMBER", for: .normal)
+        $0.titleLabel?.font = .appFont(size: 50)
+        $0.setTitleColor(.black, for: .normal)
     }
     
     override func viewDidLoad() {
@@ -64,7 +65,8 @@ extension CalendarContainerVC {
     func setupTopViewLayout() {
         self.view.addSubview(topNaviView)
         self.topNaviView.addSubview(menuBtn)
-        self.topNaviView.addSubview(datePickerBtn)
+        self.topNaviView.addSubview(monthBtn)
+        
         topNaviView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -75,6 +77,12 @@ extension CalendarContainerVC {
             $0.height.width.equalTo(24)
             $0.left.equalToSuperview().offset(15)
             $0.centerY.equalToSuperview()
+        }
+        
+        monthBtn.snp.makeConstraints {
+            $0.height.equalTo(45)
+            $0.centerX.centerY.equalToSuperview()
+            $0.width.equalTo(180)
         }
     }
     
@@ -97,7 +105,7 @@ extension CalendarContainerVC {
     }
     
     func showViewController(_ index : Int) -> UIViewController? {
-        let reactor = CalendarReactor()
+        let reactor = CalendarContentReactor()
         return Scene.calendar(reactor).instantiate()
     }
 }

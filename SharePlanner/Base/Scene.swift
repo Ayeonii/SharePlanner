@@ -10,7 +10,7 @@ import UIKit
 
 enum Scene {
     case calendarContainer(CalendarContainerReactor)
-    case calendar(CalendarReactor)
+    case calendar(CalendarContentReactor)
 }
 
 extension Scene {
@@ -23,7 +23,7 @@ extension Scene {
             return vc
             
         case .calendar(let reactor):
-            let vc = CalendarVC(reactor: reactor)
+            let vc = CalendarContentVC(reactor: reactor)
             vc.bind(reactor: reactor)
             
             return vc
