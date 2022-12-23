@@ -61,17 +61,24 @@ extension CalendarView: UICollectionViewDataSource {
                 
         let date: Int
         if indexPath.item < startWeekdayOfMonthIndex {
-            cell.dateLabel.textColor = .appColor(.lightGray)
+            cell.dateLabel.textColor = .appColor(.gray)
             let prevMonth = presentMonth.rawValue < 2 ? .dec : Month(rawValue: presentMonth.rawValue - 1) ?? .jan
             let prevMonthDate = prevMonth.getNumberOfDays()
             date = prevMonthDate - (startWeekdayOfMonthIndex - 1) + indexPath.row
              
         } else if indexPath.item >= minimumCellCount {
-            cell.dateLabel.textColor = .appColor(.lightGray)
+            cell.dateLabel.textColor = .appColor(.gray)
             date = indexPath.item - minimumCellCount + 1
             
         } else {
-            cell.dateLabel.textColor = .appColor(.textPrimary)
+            log.debug(startWeekdayOfMonthIndex)
+            if startWeekdayOfMonthIndex == 1 {
+                cell.dateLabel.textColor = .appColor(.rosePink)
+            } else if startWeekdayOfMonthIndex == 7 {
+                cell.dateLabel.textColor = .appColor(.blue)
+            } else {
+                cell.dateLabel.textColor = .appColor(.textPrimary)
+            }
             date = indexPath.row - startWeekdayOfMonthIndex + 1
         }
         cell.cellNum = date

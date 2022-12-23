@@ -33,7 +33,6 @@ extension Date {
     }
     
     var monthType: Month {
-        let nameFormatter = DateFormatter()
         let monthNum = Calendar.current.component(.month, from: self)
         
         return Month(rawValue: monthNum) ?? .jan

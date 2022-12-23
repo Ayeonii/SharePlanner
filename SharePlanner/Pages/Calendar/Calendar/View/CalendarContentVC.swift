@@ -42,17 +42,17 @@ class CalendarContentVC: BaseViewController<CalendarContentReactor> {
         }
         
         weekdayView.snp.makeConstraints {
-            $0.leading.equalTo(view).offset(16)
-            $0.trailing.equalToSuperview().offset(-16)
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(50)
+            $0.leading.equalTo(view).offset(15)
+            $0.trailing.equalToSuperview().offset(-15)
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(10)
             $0.height.equalTo(25)
-            $0.bottom.equalTo(calendarView.snp.top)
+            $0.bottom.equalTo(calendarView.snp.top).offset(-10)
         }
         
         calendarView.snp.makeConstraints {
-            $0.leading.equalTo(view).offset(16)
-            $0.trailing.equalToSuperview().offset(-16)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
+            $0.leading.equalTo(view).offset(15)
+            $0.trailing.equalToSuperview().offset(-15)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-10)
         }
     }
     

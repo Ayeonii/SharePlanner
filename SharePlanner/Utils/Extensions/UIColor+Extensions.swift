@@ -14,6 +14,7 @@ enum AppMainColor {
     case textPrimary
     case textSecondary
     case lightGray
+    case gray
 }
 
 extension UIColor {
@@ -44,6 +45,8 @@ extension UIColor {
             return UIColor(red: 119, green: 119, blue: 119)
         case .lightGray:
             return UIColor(rgb: 0xcccccc)
+        case .gray:
+            return UIColor(rgb: 0x888888)
         }
     }
 }
