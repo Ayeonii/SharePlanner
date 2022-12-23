@@ -72,14 +72,17 @@ extension CalendarView: UICollectionViewDataSource {
             
         } else {
             log.debug(startWeekdayOfMonthIndex)
-            if startWeekdayOfMonthIndex == 1 {
+            date = indexPath.row - startWeekdayOfMonthIndex + 1
+            
+            let weekdayIndex: Int = (date % 7) + startWeekdayOfMonthIndex - 1
+            
+            if weekdayIndex == 7 {
                 cell.dateLabel.textColor = .appColor(.rosePink)
-            } else if startWeekdayOfMonthIndex == 7 {
+            } else if weekdayIndex == 6 {
                 cell.dateLabel.textColor = .appColor(.blue)
             } else {
                 cell.dateLabel.textColor = .appColor(.textPrimary)
             }
-            date = indexPath.row - startWeekdayOfMonthIndex + 1
         }
         cell.cellNum = date
        
