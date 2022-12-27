@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct YearMonth {
+struct YearMonth: Hashable {
     var year: Int
     var month: Month
     

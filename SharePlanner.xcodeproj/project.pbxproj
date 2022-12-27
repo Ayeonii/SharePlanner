@@ -33,7 +33,7 @@
 		D60D84CD294EDCB100352677 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84CC294EDCB100352677 /* ViewController.swift */; };
 		D60D84D5294EDCB200352677 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D60D84D4294EDCB200352677 /* Assets.xcassets */; };
 		D60D84D8294EDCB200352677 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D60D84D6294EDCB200352677 /* LaunchScreen.storyboard */; };
-		D60D84E3294EDCB300352677 /* SharePlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84E2294EDCB300352677 /* SharePlannerTests.swift */; };
+		D60D84E3294EDCB300352677 /* CalendarContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84E2294EDCB300352677 /* CalendarContainerTests.swift */; };
 		FBAF7CF2558BE5565268467C /* Pods_SharePlannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7F1EC26565B177DEA93EED /* Pods_SharePlannerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,7 +83,7 @@
 		D60D84D7294EDCB200352677 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D60D84D9294EDCB200352677 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D60D84DE294EDCB300352677 /* SharePlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharePlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D60D84E2294EDCB300352677 /* SharePlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePlannerTests.swift; sourceTree = "<group>"; };
+		D60D84E2294EDCB300352677 /* CalendarContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContainerTests.swift; sourceTree = "<group>"; };
 		E82A9824D06341CD9C1A9E5B /* Pods-SharePlannerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePlannerTests.debug.xcconfig"; path = "Target Support Files/Pods-SharePlannerTests/Pods-SharePlannerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F1A7E6A2F738C4B65ACD2C02 /* Pods_SharePlanner_SharePlannerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharePlanner_SharePlannerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -347,7 +347,7 @@
 		D60D84E1294EDCB300352677 /* SharePlannerTests */ = {
 			isa = PBXGroup;
 			children = (
-				D60D84E2294EDCB300352677 /* SharePlannerTests.swift */,
+				D60D84E2294EDCB300352677 /* CalendarContainerTests.swift */,
 			);
 			path = SharePlannerTests;
 			sourceTree = "<group>";
@@ -567,7 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D60D84E3294EDCB300352677 /* SharePlannerTests.swift in Sources */,
+				D60D84E3294EDCB300352677 /* CalendarContainerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
