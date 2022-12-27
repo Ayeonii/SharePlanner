@@ -13,25 +13,31 @@ class CalendarContentReactor: Reactor {
     var disposeBag = DisposeBag()
     
     enum Action {
+        case setYearMonth(YearMonth)
         case showAlert
     }
     
     enum Mutation {
+        case setYearMonth(YearMonth)
         case setAlertMsg(String?)
     }
     
     struct State {
+        @Pulse var yearMonth: YearMonth
         var showAlertWithMsg: String?
     }
     
-    let initialState = State()
+    let initialState: State
     
-    init() {
-        log.debug("init!")
+    init(yearMonth: YearMonth) {
+        initialState = State(yearMonth: yearMonth)
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
+        case .setYearMonth(let yearMonth):
+            return .just(.setYearMonth(yearMonth))
+            
         case .showAlert:
             return .concat([
                 .just(.setAlertMsg("Test!!")),
@@ -44,6 +50,9 @@ class CalendarContentReactor: Reactor {
         var newState = state
         
         switch mutation {
+        case .setYearMonth(let ym):
+            newState.yearMonth = ym
+            
         case .setAlertMsg(let msg):
             newState.showAlertWithMsg = msg
         }

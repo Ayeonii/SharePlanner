@@ -11,28 +11,30 @@ import ReactorKit
 
 class CalendarContainerReactor: Reactor {
     let disposeBag = DisposeBag()
-    
+   
     enum Action {
-        
+        case changeCurrentYM(YearMonth)
     }
     
     enum Mutation {
-        
+        case setCurrentYM(YearMonth)
     }
     
     struct State {
-        
+        var currentYM: YearMonth
     }
     
-    var initialState: State = State()
+    var initialState: State
     
     init() {
-        
+        let currentDate =  Date()
+        initialState = State(currentYM: YearMonth(year: currentDate.year, month: currentDate.monthType))
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-            
+        case .changeCurrentYM(let ym):
+            return .just(.setCurrentYM(ym))
         }
     }
     
@@ -40,7 +42,8 @@ class CalendarContainerReactor: Reactor {
         var newState = state
         
         switch mutation {
-            
+        case .setCurrentYM(let ym):
+            newState.currentYM = ym
         }
         
         return newState

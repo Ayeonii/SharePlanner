@@ -50,6 +50,64 @@ enum Month: Int {
         }
     }
     
+    func getPrevMonth() -> Month {
+        switch self {
+        case .jan:
+            return .dec
+        case .fab:
+            return .jan
+        case .mar:
+            return .fab
+        case .apr:
+            return .mar
+        case .may:
+            return .apr
+        case .jun:
+            return .may
+        case .jul:
+            return .jun
+        case .aug:
+            return .jul
+        case .sep:
+            return .aug
+        case .oct:
+            return .sep
+        case .nov:
+            return .oct
+        case .dec:
+            return .nov
+        }
+    }
+    
+    func getNextMonth() -> Month {
+        switch self {
+        case .jan:
+            return .fab
+        case .fab:
+            return .mar
+        case .mar:
+            return .apr
+        case .apr:
+            return .may
+        case .may:
+            return .jun
+        case .jun:
+            return .jul
+        case .jul:
+            return .aug
+        case .aug:
+            return .sep
+        case .sep:
+            return .oct
+        case .oct:
+            return .nov
+        case .nov:
+            return .dec
+        case .dec:
+            return .jan
+        }
+    }
+    
     func getNumberOfDays() -> Int {
         switch self {
         case .jan:

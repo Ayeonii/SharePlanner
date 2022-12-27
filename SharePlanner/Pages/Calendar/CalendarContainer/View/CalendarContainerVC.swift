@@ -13,6 +13,18 @@ import SnapKit
 import Then
 
 class CalendarContainerVC: BaseViewController<CalendarContainerReactor> {
+    
+    lazy var vcArray: [UIViewController] = {
+        let currentYM = state.currentYM
+        let prevReactor = CalendarContentReactor(yearMonth: currentYM.getPrevYM())
+        let currentReactor = CalendarContentReactor(yearMonth: currentYM)
+        let nextReactor = CalendarContentReactor(yearMonth: currentYM.getNextYM())
+    
+        return [Scene.calendar(prevReactor).instantiate(),
+                Scene.calendar(currentReactor).instantiate(),
+                Scene.calendar(nextReactor).instantiate()]
+    }()
+    
     lazy var pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal).then {
         $0.delegate = self
         $0.dataSource = self
@@ -31,7 +43,6 @@ class CalendarContainerVC: BaseViewController<CalendarContainerReactor> {
     }
     
     var monthBtn = UIButton().then {
-        //$0.setBackgroundImage(UIImage(named: "blueSticker"), for: .normal)
         $0.setTitle("DECEMBER", for: .normal)
         $0.titleLabel?.font = .appFont(size: 50)
         $0.setTitleColor(.black, for: .normal)
@@ -87,8 +98,7 @@ extension CalendarContainerVC {
     }
     
     func setupPageController() {
-        guard let initVC = showViewController(0) else { return }
-        pageController.setViewControllers([initVC], direction: .forward, animated: true)
+        pageController.setViewControllers([vcArray[1]], direction: .forward, animated: true)
     }
     
     func setupPageControllerLayout() {
@@ -103,27 +113,50 @@ extension CalendarContainerVC {
 
         pageController.didMove(toParent: self)
     }
-    
-    func showViewController(_ index : Int) -> UIViewController? {
-        let reactor = CalendarContentReactor()
-        return Scene.calendar(reactor).instantiate()
-    }
+
 }
 
 extension CalendarContainerVC: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        let vc = pageViewController.viewControllers?.first
-        return vc
+        guard let viewControllerIndex = vcArray.firstIndex(of: viewController) else { return nil }
+        let previousIndex = viewControllerIndex - 1
+
+        if previousIndex < 0 {
+            let prevYearMonth = state.currentYM.getPrevYM()
+            reactor.action.onNext(.changeCurrentYM(prevYearMonth))
+            guard let vc = vcArray.last as? CalendarContentVC else { return nil }
+            vc.reactor.action.onNext(.setYearMonth(prevYearMonth))
+            return vc
+        }
+        
+        return vcArray[previousIndex]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        let vc = pageViewController.viewControllers?.first
-        return vc
+        guard let viewControllerIndex = vcArray.firstIndex(of: viewController) else { return nil }
+        let nextIndex = viewControllerIndex + 1
+       
+        if nextIndex > vcArray.count - 1 {
+            let nextYearMonth = state.currentYM.getNextYM()
+            reactor.action.onNext(.changeCurrentYM(nextYearMonth))
+            guard let vc = vcArray.first as? CalendarContentVC else { return nil }
+            vc.reactor.action.onNext(.setYearMonth(nextYearMonth))
+            return vc
+        }
+        
+        return vcArray[nextIndex]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if finished, completed {
-            
+//            let currentYM = state.currentYM
+//            let prevReactor = CalendarContentReactor(yearMonth: currentYM.getPrevYM())
+//            let currentReactor = CalendarContentReactor(yearMonth: currentYM)
+//            let nextReactor = CalendarContentReactor(yearMonth: currentYM.getNextYM())
+//
+//            self.vcArray = [Scene.calendar(prevReactor).instantiate(),
+//                            Scene.calendar(currentReactor).instantiate(),
+//                            Scene.calendar(nextReactor).instantiate()]
         }
     }
 }
