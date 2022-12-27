@@ -105,7 +105,7 @@ extension BaseViewControllerClass {
     func moveToTarget(to vc: UIViewController, using style: TransitionType, animated: Bool, completion: (() -> Void)? = nil) {
         let target = vc
         
-        if var baseVC = target as? Self {
+        if let baseVC = target as? Self {
             baseVC.transitionType = style
         }
         

@@ -108,12 +108,16 @@ enum Month: Int {
         }
     }
     
-    func getNumberOfDays() -> Int {
+    func getNumberOfDays(year: Int) -> Int {
         switch self {
         case .jan:
             return 31
         case .fab:
-            return 28
+            if year % 4 == 0 {
+                return 29
+            } else {
+                return 28
+            }
         case .mar:
             return 31
         case .apr:

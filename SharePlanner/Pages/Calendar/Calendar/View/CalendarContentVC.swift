@@ -23,10 +23,10 @@ class CalendarContentVC: BaseViewController<CalendarContentReactor> {
         $0.backgroundColor = .clear
     }
     
-    let calendarView = CalendarView().then {
+    lazy var calendarView = CalendarView(frame: .zero, yearMonth: state.yearMonth).then {
         $0.backgroundColor = .clear
     }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .clear
@@ -68,7 +68,12 @@ extension CalendarContentVC {
     }
     
     func bindState(_ reactor: CalendarContentReactor) {
-       
+        reactor.pulse(\.$yearMonth)
+            .asDriver{ _ in .never() }
+            .drive(onNext: { [weak self] ym in
+                self?.calendarView.changeDate(ym)
+            })
+            .disposed(by: disposeBag)
     }
 }
 

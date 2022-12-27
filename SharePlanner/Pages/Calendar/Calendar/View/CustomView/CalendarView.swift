@@ -11,8 +11,13 @@ import SnapKit
 import Then
 
 class CalendarView: UIView {
-    var presentMonth: Month = Date().monthType
     var presentYear: Int = Date().year
+    var presentMonth: Month = Date().monthType
+    
+    lazy var getFirstWeekday: Int = {
+        let day = ("\(self.presentYear)-\(self.presentMonth.rawValue)-01".date?.firstDayOfTheMonth.weekday)!
+        return day
+    }()
     
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
         $0.backgroundColor = .clear
@@ -23,32 +28,36 @@ class CalendarView: UIView {
         $0.register(CalendarCVCell.self, forCellWithReuseIdentifier: CalendarCVCell.identifier)
     }
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, yearMonth: YearMonth) {
+        self.presentYear = yearMonth.year
+        self.presentMonth = yearMonth.month
         super.init(frame: frame)
-        configureLayout()
+        self.configureLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented -> DO NOT USE on Storyboard")
     }
     
-    func configureLayout() {
+    private func configureLayout() {
         self.addSubview(collectionView)
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }
     
-    func getFirstWeekday() -> Int {
-        let day = ("\(presentYear)-\(presentMonth.rawValue)-01".date?.firstDayOfTheMonth.weekday)!
-        return day
+    func changeDate(_ yearMonth: YearMonth) {
+        self.presentYear = yearMonth.year
+        self.presentMonth = yearMonth.month
+        
+        collectionView.reloadData()
     }
 }
 
 extension CalendarView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let minimumCellCount = presentMonth.getNumberOfDays() + getFirstWeekday() - 1
+        let minimumCellCount = presentMonth.getNumberOfDays(year: self.presentYear) + getFirstWeekday - 1
         let dateNumber = minimumCellCount % 7 == 0 ? minimumCellCount : minimumCellCount + (7 - (minimumCellCount % 7))
         return dateNumber
     }
@@ -56,14 +65,14 @@ extension CalendarView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCVCell.identifier, for: indexPath) as? CalendarCVCell else { return UICollectionViewCell() }
         
-        let startWeekdayOfMonthIndex = getFirstWeekday() - 1
-        let minimumCellCount = presentMonth.getNumberOfDays() + getFirstWeekday() - 1
+        let startWeekdayOfMonthIndex = getFirstWeekday - 1
+        let minimumCellCount = presentMonth.getNumberOfDays(year: self.presentYear) + getFirstWeekday - 1
                 
         let date: Int
         if indexPath.item < startWeekdayOfMonthIndex {
             cell.dateLabel.textColor = .appColor(.gray)
             let prevMonth = presentMonth.rawValue < 2 ? .dec : Month(rawValue: presentMonth.rawValue - 1) ?? .jan
-            let prevMonthDate = prevMonth.getNumberOfDays()
+            let prevMonthDate = prevMonth.getNumberOfDays(year: self.presentYear)
             date = prevMonthDate - (startWeekdayOfMonthIndex - 1) + indexPath.row
              
         } else if indexPath.item >= minimumCellCount {
@@ -71,7 +80,6 @@ extension CalendarView: UICollectionViewDataSource {
             date = indexPath.item - minimumCellCount + 1
             
         } else {
-            log.debug(startWeekdayOfMonthIndex)
             date = indexPath.row - startWeekdayOfMonthIndex + 1
             
             let weekdayIndex: Int = (date % 7) + startWeekdayOfMonthIndex - 1

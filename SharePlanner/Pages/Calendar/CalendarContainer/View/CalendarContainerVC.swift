@@ -121,42 +121,42 @@ extension CalendarContainerVC: UIPageViewControllerDelegate, UIPageViewControlle
         guard let viewControllerIndex = vcArray.firstIndex(of: viewController) else { return nil }
         let previousIndex = viewControllerIndex - 1
 
+        log.debug("이전달", state.currentYM.getPrevYM())
         if previousIndex < 0 {
-            let prevYearMonth = state.currentYM.getPrevYM()
-            reactor.action.onNext(.changeCurrentYM(prevYearMonth))
             guard let vc = vcArray.last as? CalendarContentVC else { return nil }
-            vc.reactor.action.onNext(.setYearMonth(prevYearMonth))
+            vc.reactor.action.onNext(.setYearMonth(state.currentYM.getPrevYM()))
+            return vc
+        } else {
+            guard let vc = vcArray[previousIndex] as? CalendarContentVC else { return nil }
+            vc.reactor.action.onNext(.setYearMonth(state.currentYM.getPrevYM()))
             return vc
         }
-        
-        return vcArray[previousIndex]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = vcArray.firstIndex(of: viewController) else { return nil }
         let nextIndex = viewControllerIndex + 1
        
+        log.debug("다음달", state.currentYM.getNextYM())
         if nextIndex > vcArray.count - 1 {
-            let nextYearMonth = state.currentYM.getNextYM()
-            reactor.action.onNext(.changeCurrentYM(nextYearMonth))
             guard let vc = vcArray.first as? CalendarContentVC else { return nil }
-            vc.reactor.action.onNext(.setYearMonth(nextYearMonth))
+            vc.reactor.action.onNext(.setYearMonth(state.currentYM.getNextYM()))
+            return vc
+        } else {
+            guard let vc = vcArray[nextIndex] as? CalendarContentVC else { return nil }
+            vc.reactor.action.onNext(.setYearMonth(state.currentYM.getNextYM()))
             return vc
         }
-        
-        return vcArray[nextIndex]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if finished, completed {
-//            let currentYM = state.currentYM
-//            let prevReactor = CalendarContentReactor(yearMonth: currentYM.getPrevYM())
-//            let currentReactor = CalendarContentReactor(yearMonth: currentYM)
-//            let nextReactor = CalendarContentReactor(yearMonth: currentYM.getNextYM())
-//
-//            self.vcArray = [Scene.calendar(prevReactor).instantiate(),
-//                            Scene.calendar(currentReactor).instantiate(),
-//                            Scene.calendar(nextReactor).instantiate()]
+            if let dates = pageViewController.viewControllers?.first as? CalendarContentVC {
+                let currentYM = dates.reactor.currentState.yearMonth
+                log.debug("finished current: ->", dates.reactor.currentState.yearMonth)
+                self.monthBtn.setTitle("\(currentYM.month.getEngName())", for: .normal)
+                self.reactor.action.onNext(.changeCurrentYM(currentYM))
+            }
         }
     }
 }
