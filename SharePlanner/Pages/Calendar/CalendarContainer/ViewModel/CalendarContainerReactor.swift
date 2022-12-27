@@ -28,8 +28,7 @@ class CalendarContainerReactor: Reactor {
     
     init() {
         let currentDate =  Date()
-//        initialState = State(currentYM: YearMonth(year: currentDate.year, month: currentDate.monthType))
-        initialState = State(currentYM: YearMonth(year: 2023, month: .fab))
+        initialState = State(currentYM: YearMonth(year: currentDate.year, month: currentDate.monthType))
     }
     
     func mutate(action: Action) -> Observable<Mutation> {

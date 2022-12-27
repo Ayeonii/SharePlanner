@@ -42,8 +42,15 @@ class CalendarContainerVC: BaseViewController<CalendarContainerReactor> {
         $0.setBackgroundImage(UIImage(named: "menuIcon"), for: .normal)
     }
     
+    var yearLabel = UILabel().then {
+        $0.text = "\(Date().year)"
+        $0.textAlignment = .center
+        $0.font = .appFont(size: 22)
+        $0.textColor = .black
+    }
+    
     var monthBtn = UIButton().then {
-        $0.setTitle("DECEMBER", for: .normal)
+        $0.setTitle(Date().monthType.getEngName(), for: .normal)
         $0.titleLabel?.font = .appFont(size: 50)
         $0.setTitleColor(.black, for: .normal)
     }
@@ -76,6 +83,7 @@ extension CalendarContainerVC {
     func setupTopViewLayout() {
         self.view.addSubview(topNaviView)
         self.topNaviView.addSubview(menuBtn)
+        self.topNaviView.addSubview(yearLabel)
         self.topNaviView.addSubview(monthBtn)
         
         topNaviView.snp.makeConstraints {
@@ -95,6 +103,13 @@ extension CalendarContainerVC {
             $0.centerX.centerY.equalToSuperview()
             $0.width.equalTo(180)
         }
+        
+        yearLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(180)
+            $0.top.equalToSuperview().offset(-5)
+            $0.bottom.equalTo(monthBtn.snp.top).offset(12)
+        }
     }
     
     func setupPageController() {
@@ -113,7 +128,6 @@ extension CalendarContainerVC {
 
         pageController.didMove(toParent: self)
     }
-
 }
 
 extension CalendarContainerVC: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
@@ -121,7 +135,6 @@ extension CalendarContainerVC: UIPageViewControllerDelegate, UIPageViewControlle
         guard let viewControllerIndex = vcArray.firstIndex(of: viewController) else { return nil }
         let previousIndex = viewControllerIndex - 1
 
-        log.debug("이전달", state.currentYM.getPrevYM())
         if previousIndex < 0 {
             guard let vc = vcArray.last as? CalendarContentVC else { return nil }
             vc.reactor.action.onNext(.setYearMonth(state.currentYM.getPrevYM()))
@@ -137,7 +150,6 @@ extension CalendarContainerVC: UIPageViewControllerDelegate, UIPageViewControlle
         guard let viewControllerIndex = vcArray.firstIndex(of: viewController) else { return nil }
         let nextIndex = viewControllerIndex + 1
        
-        log.debug("다음달", state.currentYM.getNextYM())
         if nextIndex > vcArray.count - 1 {
             guard let vc = vcArray.first as? CalendarContentVC else { return nil }
             vc.reactor.action.onNext(.setYearMonth(state.currentYM.getNextYM()))
@@ -153,7 +165,7 @@ extension CalendarContainerVC: UIPageViewControllerDelegate, UIPageViewControlle
         if finished, completed {
             if let dates = pageViewController.viewControllers?.first as? CalendarContentVC {
                 let currentYM = dates.reactor.currentState.yearMonth
-                log.debug("finished current: ->", dates.reactor.currentState.yearMonth)
+                self.yearLabel.text = "\(currentYM.year)"
                 self.monthBtn.setTitle("\(currentYM.month.getEngName())", for: .normal)
                 self.reactor.action.onNext(.changeCurrentYM(currentYM))
             }
