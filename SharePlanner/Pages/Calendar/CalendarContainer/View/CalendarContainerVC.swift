@@ -163,11 +163,12 @@ extension CalendarContainerVC: UIPageViewControllerDelegate, UIPageViewControlle
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if finished, completed {
-            if let dates = pageViewController.viewControllers?.first as? CalendarContentVC {
-                let currentYM = dates.reactor.currentState.yearMonth
+            if let currentVC = pageViewController.viewControllers?.first as? CalendarContentVC {
+                let currentYM = currentVC.reactor.currentState.yearMonth
                 self.yearLabel.text = "\(currentYM.year)"
                 self.monthBtn.setTitle("\(currentYM.month.getEngName())", for: .normal)
                 self.reactor.action.onNext(.changeCurrentYM(currentYM))
+                currentVC.reactor.action.onNext(.setSelectDefault)
             }
         }
     }

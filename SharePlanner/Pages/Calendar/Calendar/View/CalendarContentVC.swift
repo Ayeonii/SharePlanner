@@ -32,6 +32,11 @@ class CalendarContentVC: BaseViewController<CalendarContentReactor> {
         self.view.backgroundColor = .clear
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.reactor.action.onNext(.deselectCell)
+    }
+   
     override func configureLayout() {
         self.view.addSubview(backgroundImage)
         self.view.addSubview(weekdayView)
@@ -72,6 +77,18 @@ extension CalendarContentVC {
             .asDriver{ _ in .never() }
             .drive(onNext: { [weak self] ym in
                 self?.calendarView.changeDate(ym)
+            })
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .compactMap { $0.shouldUpdateDefaultSelect }
+            .asDriver{ _ in .never() }
+            .drive(onNext: { [weak self] shouldSelect in
+                if shouldSelect {
+                    self?.calendarView.updateDefaultSelected()
+                } else {
+                    self?.calendarView.updateDeselected()
+                }
             })
             .disposed(by: disposeBag)
     }

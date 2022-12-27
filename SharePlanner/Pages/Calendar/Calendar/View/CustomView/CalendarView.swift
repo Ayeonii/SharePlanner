@@ -11,12 +11,16 @@ import SnapKit
 import Then
 
 class CalendarView: UIView {
+    let today = Date()
+    let todayYM = YearMonth(date: Date())
+    
+    var selectedIndexPath: IndexPath?
+    
     var presentYM: YearMonth
     var numberOfWeeks: Int = 5
     
     var getFirstWeekday: Int {
         let day = ("\(presentYM.year)-\(presentYM.month.rawValue)-01".date?.firstDayOfTheMonth.weekday)!
-        log.debug("day", day)
         return day
     }
     
@@ -50,6 +54,26 @@ class CalendarView: UIView {
         self.presentYM = yearMonth
         collectionView.reloadData()
     }
+    
+    func updateDefaultSelected() {
+        guard presentYM != todayYM else { return }
+        let startWeekdayOfMonthIndex = getFirstWeekday - 1
+        let firstIndexPath = IndexPath(item: startWeekdayOfMonthIndex, section: 0)
+        guard let cell = collectionView.cellForItem(at: firstIndexPath) as? CalendarCVCell else { return }
+        
+        cell.isSelected = true
+        cell.setSelected(isSelect: true)
+        selectedIndexPath = firstIndexPath
+        collectionView.selectItem(at: firstIndexPath, animated: false, scrollPosition: .init())
+    }
+    
+    func updateDeselected() {
+        guard let selectedIndexPath = self.selectedIndexPath else { return }
+        guard let cell = collectionView.cellForItem(at: selectedIndexPath) as? CalendarCVCell else { return }
+        
+        cell.isSelected = false
+        cell.setSelected(isSelect: false)
+    }
 }
 
 extension CalendarView: UICollectionViewDataSource {
@@ -80,9 +104,6 @@ extension CalendarView: UICollectionViewDataSource {
             date = indexPath.item - minimumCellCount + 1
             
         } else {
-            let today = Date()
-            let todayYM = YearMonth(date: Date())
-            
             date = indexPath.row - startWeekdayOfMonthIndex + 1
             
             let weekdayIndex: Int = (date % 7) + startWeekdayOfMonthIndex - 1
@@ -95,16 +116,8 @@ extension CalendarView: UICollectionViewDataSource {
                 cell.dateLabel.textColor = .appColor(.textPrimary)
             }
             
-            if todayYM == presentYM {
-                if date == today.day {
-                    cell.isToday = true
-                }
-            } else {
-                if date == 1 {
-                    cell.isSelected = true
-                    cell.setSelected(isSelect: true)
-                    collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
-                }
+            if todayYM == presentYM, date == today.day {
+                cell.isToday = true
             }
         }
         cell.cellNum = date
@@ -132,6 +145,8 @@ extension CalendarView: UICollectionViewDelegate, UICollectionViewDelegateFlowLa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? CalendarCVCell else { return }
         
+        guard !cell.isToday else { return }
+        selectedIndexPath = indexPath
         cell.setSelected(isSelect: true)
     }
     
