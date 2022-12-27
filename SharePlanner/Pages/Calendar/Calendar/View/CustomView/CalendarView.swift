@@ -14,11 +14,11 @@ class CalendarView: UIView {
     var presentYM: YearMonth
     var numberOfWeeks: Int = 5
     
-    lazy var getFirstWeekday: Int = {
+    var getFirstWeekday: Int {
         let day = ("\(presentYM.year)-\(presentYM.month.rawValue)-01".date?.firstDayOfTheMonth.weekday)!
         log.debug("day", day)
         return day
-    }()
+    }
     
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
         $0.backgroundColor = .clear
