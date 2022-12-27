@@ -23,7 +23,7 @@ class CalendarView: UIView {
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
         $0.backgroundColor = .clear
         $0.showsHorizontalScrollIndicator = false
-        $0.allowsSelection = false
+        $0.allowsSelection = true
         $0.delegate = self
         $0.dataSource = self
         $0.register(CalendarCVCell.self, forCellWithReuseIdentifier: CalendarCVCell.identifier)
@@ -80,6 +80,9 @@ extension CalendarView: UICollectionViewDataSource {
             date = indexPath.item - minimumCellCount + 1
             
         } else {
+            let today = Date()
+            let todayYM = YearMonth(date: Date())
+            
             date = indexPath.row - startWeekdayOfMonthIndex + 1
             
             let weekdayIndex: Int = (date % 7) + startWeekdayOfMonthIndex - 1
@@ -90,6 +93,18 @@ extension CalendarView: UICollectionViewDataSource {
                 cell.dateLabel.textColor = .appColor(.blue)
             } else {
                 cell.dateLabel.textColor = .appColor(.textPrimary)
+            }
+            
+            if todayYM == presentYM {
+                if date == today.day {
+                    cell.isToday = true
+                }
+            } else {
+                if date == 1 {
+                    cell.isSelected = true
+                    cell.setSelected(isSelect: true)
+                    collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
+                }
             }
         }
         cell.cellNum = date
@@ -113,21 +128,44 @@ extension CalendarView: UICollectionViewDelegate, UICollectionViewDelegateFlowLa
         
         return CGSize(width: width, height: height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? CalendarCVCell else { return }
+        
+        cell.setSelected(isSelect: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? CalendarCVCell else { return }
+        
+        cell.setSelected(isSelect: false)
+    }
 }
 
 
 class CalendarCVCell: UICollectionViewCell {
     static let identifier = "CalendarCVCell"
     
+    var todayNumCoverView = UIView().then {
+        $0.backgroundColor = .appColor(.rosePink).withAlphaComponent(0.5)
+    }
+    
+    var selectedCoverView = UIView().then {
+        $0.backgroundColor = .appColor(.gray).withAlphaComponent(0.5)
+    }
+    
     var dateLabel = UILabel().then {
         $0.textAlignment = .center
         $0.font = .appFont(size: 25)
     }
     
+    var isToday: Bool = false
+    
     var cellNum: Int? {
         didSet {
             guard let number = cellNum else { return }
             dateLabel.text = "\(number)"
+            todayNumCoverView.isHidden = !isToday
         }
     }
     
@@ -142,13 +180,41 @@ class CalendarCVCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        dateLabel.updateConstraints()
+        self.todayNumCoverView.layer.cornerRadius = self.todayNumCoverView.bounds.height / 2
+        self.selectedCoverView.layer.cornerRadius = self.selectedCoverView.bounds.height / 2
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.isToday = false
+        self.selectedCoverView.isHidden = true
     }
     
     private func setupView() {
+        selectedCoverView.isHidden = true
+        todayNumCoverView.isHidden = true
+
+        addSubview(selectedCoverView)
+        addSubview(todayNumCoverView)
         addSubview(dateLabel)
+        
         dateLabel.snp.makeConstraints {
             $0.leading.trailing.top.equalToSuperview()
         }
+        
+        todayNumCoverView.snp.makeConstraints {
+            $0.centerX.equalTo(dateLabel)
+            $0.top.equalTo(dateLabel).offset(3)
+            $0.width.height.equalTo(25)
+        }
+        
+        selectedCoverView.snp.makeConstraints {
+            $0.edges.equalTo(todayNumCoverView)
+        }
+    }
+    
+    func setSelected(isSelect: Bool) {
+        guard !isToday else { return }
+        selectedCoverView.isHidden = !isSelect
     }
 }

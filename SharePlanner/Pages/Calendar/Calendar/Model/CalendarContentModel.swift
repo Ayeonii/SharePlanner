@@ -31,3 +31,9 @@ struct YearMonth: Hashable {
         return YearMonth(year: nextYear, month: nextMonth)
     }
 }
+
+extension YearMonth {
+    init(date: Date) {
+        self.init(year: date.year, month: date.monthType)
+    }
+}
