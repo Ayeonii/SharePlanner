@@ -28,4 +28,5 @@ target 'SharePlannerTests' do
   commonPod
   pod 'RxTest'
   pod 'RxBlocking'
+  pod 'RxExpect'
 end
