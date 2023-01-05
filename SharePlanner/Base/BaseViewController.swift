@@ -35,6 +35,12 @@ extension BindReactorActionStateProtocol {
 }
 
 
+//MARK: - View Transition
+protocol BaseTransitionProtocol {
+    var transitionType: TransitionType? { get set }
+}
+
+
 //MARK: - View Protocol
 protocol ConfigureViewProtocol {
     func configureLayout()
@@ -45,7 +51,7 @@ protocol ConfigureViewProtocol {
 // MARK: - SuperClass of Common ViewControllers
 typealias BaseViewController<T: Reactor> = BaseViewControllerClass<T> & BindReactorActionStateProtocol
 
-class BaseViewControllerClass<T: Reactor>: UIViewController, ConfigureViewProtocol {
+class BaseViewControllerClass<T: Reactor>: UIViewController, BaseTransitionProtocol, ConfigureViewProtocol {
     typealias ReactorType = T
     
     lazy var dimmTransitionDelegate = DimmPresentManager()
@@ -84,9 +90,9 @@ class BaseViewControllerClass<T: Reactor>: UIViewController, ConfigureViewProtoc
         self.configureLayer()
     }
     
-    func configureLayout() {}
+    func configureLayout() { }
     
-    func configureLayer() {}
+    func configureLayer() { }
 }
 
 extension BaseViewControllerClass {
@@ -105,7 +111,7 @@ extension BaseViewControllerClass {
     func moveToTarget(to vc: UIViewController, using style: TransitionType, animated: Bool, completion: (() -> Void)? = nil) {
         let target = vc
         
-        if let baseVC = target as? Self {
+        if var baseVC = target as? BaseTransitionProtocol {
             baseVC.transitionType = style
         }
         
@@ -137,7 +143,7 @@ extension BaseViewControllerClass {
             }
         }
     }
-
+    
     ///Close ViewController And Move To ViewController
     func transitionAfterClose(to vc: UIViewController, using style: TransitionType, animated: Bool, completion: (() -> Void)? = nil) {
         

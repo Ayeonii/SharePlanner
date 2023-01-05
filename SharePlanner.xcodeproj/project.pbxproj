@@ -135,6 +135,27 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C40496902966AFEF00FAFEF4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C40496912966AFF400FAFEF4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C40496922966AFF900FAFEF4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C49A01CB295406550050F561 /* Service */ = {
 			isa = PBXGroup;
 			children = (

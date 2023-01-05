@@ -60,10 +60,6 @@ class CalendarContentVC: BaseViewController<CalendarContentReactor> {
             $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-10)
         }
     }
-    
-    override func configureLayer() {
-        
-    }
 }
 
 extension CalendarContentVC {
