@@ -28,6 +28,7 @@ PODS:
     - RxSwift (= 6.1.0)
   - SnapKit (5.6.0)
   - SwiftyJSON (4.3.0)
+  - Swinject (2.8.2)
   - Then (3.0.0)
   - WeakMapTable (1.2.0)
 
@@ -43,6 +44,7 @@ DEPENDENCIES:
   - RxTest
   - SnapKit
   - SwiftyJSON (~> 4.0)
+  - Swinject
   - Then
 
 SPEC REPOS:
@@ -60,6 +62,7 @@ SPEC REPOS:
     - RxTest
     - SnapKit
     - SwiftyJSON
+    - Swinject
     - Then
     - WeakMapTable
 
@@ -77,9 +80,10 @@ SPEC CHECKSUMS:
   RxTest: 9d26616eaff4a7e75f4ecae9b2c24840f2e8218d
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  Swinject: b4a11b31992e8668308dc594ba1cb9b3164a37ab
   Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: b822420b423f53a15a65b8182c758f9456efe490
+PODFILE CHECKSUM: ff2e60e39817311445bac3e55159f969a82b6f48
 
 COCOAPODS: 1.11.3
