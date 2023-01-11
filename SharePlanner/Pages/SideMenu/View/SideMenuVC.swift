@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import RxGesture
 import ReactorKit
 import SnapKit
@@ -23,10 +24,11 @@ class SideMenuVC: BaseViewController<SideMenuReactor> {
     let sideView = UIImageView().then {
         $0.image = UIImage(named: "sideBackground")
         $0.contentMode = .scaleAspectFill
+        $0.isUserInteractionEnabled = true
     }
     
     let settingBtn = UIButton().then {
-        $0.setBackgroundImage(UIImage(named: "setting"), for: .normal)
+        $0.setBackgroundImage(UIImage(named: "settingIcon"), for: .normal)
     }
 
     let profileView = UIView().then {
@@ -47,7 +49,7 @@ class SideMenuVC: BaseViewController<SideMenuReactor> {
         $0.text = "이아연"
     }
     
-    lazy var tableView = UITableView(frame: .zero, style: .grouped).then {
+    lazy var tableView = UITableView().then {
         $0.delegate = self
         $0.separatorStyle = .none
         $0.backgroundColor = .clear
@@ -110,13 +112,18 @@ class SideMenuVC: BaseViewController<SideMenuReactor> {
     }
     
     func bindAction(_ reactor: SideMenuReactor) {
+        settingBtn.rx.tap
+            .map{ SideMenuReactor.Action.showSetting }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
         backView.rx.tapGesture()
             .when(.recognized)
             .map{ _ in SideMenuReactor.Action.closeView }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        self.view.rx
+        view.rx
             .panGesture()
             .when(.changed, .ended)
             .map{ [weak self] pan in
@@ -181,14 +188,27 @@ class SideMenuVC: BaseViewController<SideMenuReactor> {
                 }
             })
             .disposed(by: disposeBag)
+        
+        reactor.state
+            .filter{ $0.shouldShowSetting }
+            .asDriver{ _ in .never() }
+            .drive(onNext: { [weak self] _ in
+                self?.showSetting()
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
+extension SideMenuVC {
+    func showSetting() {
+        let reactor = SettingReactor()
+        let vc = Scene.setting(reactor).instantiate()
+        vc.modalPresentationStyle = .overCurrentContext
+        self.transition(to: vc, using: .present, animated: true)
     }
 }
 
 extension SideMenuVC: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat.leastNormalMagnitude
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }

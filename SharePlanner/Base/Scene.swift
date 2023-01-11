@@ -12,6 +12,7 @@ enum Scene {
     case calendarContainer(CalendarContainerReactor)
     case calendar(CalendarContentReactor)
     case sideMenu(SideMenuReactor)
+    case setting(SettingReactor)
 }
 
 extension Scene {
@@ -31,6 +32,12 @@ extension Scene {
             
         case .sideMenu(let reactor):
             let vc = SideMenuVC(reactor: reactor)
+            vc.bind(reactor: reactor)
+            
+            return vc
+            
+        case .setting(let reactor):
+            let vc = SettingVC(reactor: reactor)
             vc.bind(reactor: reactor)
             
             return vc

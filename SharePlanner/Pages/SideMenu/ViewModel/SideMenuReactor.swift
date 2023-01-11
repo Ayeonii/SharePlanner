@@ -12,19 +12,22 @@ class SideMenuReactor: Reactor {
     enum Action {
         case transformSideViewX(CGFloat)
         case transformToOriginal
-        case noneAction
+        case showSetting
         case closeView
+        case noneAction
     }
     
     enum Mutation {
-        case setCloseView(Bool)
         case setSideViewTranslateX(CGFloat?)
+        case setShowSetting(Bool)
+        case setCloseView(Bool)
     }
     
     struct State {
         @Pulse var sideMenuList: [String] = ["setting1", "setting2", "setting3", "setting4"]
-        var shouldClose: Bool = false
         @Pulse var sideViewTranslateX: CGFloat?
+        var shouldShowSetting: Bool = false
+        var shouldClose: Bool = false
     }
     
     let initialState: State = State()
@@ -40,6 +43,9 @@ class SideMenuReactor: Reactor {
             
         case .transformToOriginal:
             return .just(.setSideViewTranslateX(0))
+            
+        case .showSetting:
+            return showSettingAction()
             
         case .closeView:
             return closeViewAction()
@@ -58,6 +64,9 @@ class SideMenuReactor: Reactor {
             
         case .setCloseView(let shouldClose):
             newState.shouldClose = shouldClose
+            
+        case .setShowSetting(let shouldShow):
+            newState.shouldShowSetting = shouldShow
         }
         
         return newState
@@ -65,6 +74,13 @@ class SideMenuReactor: Reactor {
 }
 
 extension SideMenuReactor {
+    func showSettingAction() -> Observable<Mutation> {
+        return .concat([
+            .just(.setShowSetting(true)),
+            .just(.setShowSetting(false))
+        ])
+    }
+    
     func closeViewAction() -> Observable<Mutation> {
         return .concat([
             .just(.setCloseView(true)),

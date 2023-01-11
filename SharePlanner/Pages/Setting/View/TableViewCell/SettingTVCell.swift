@@ -1,5 +1,5 @@
 //
-//  SideMenuTVCell.swift
+//  SettingTVCell.swift
 //  SharePlanner
 //
 //  Created by 이아연 on 2023/01/11.
@@ -9,8 +9,8 @@ import UIKit
 import SnapKit
 import Then
 
-class SideMenuTVCell: UITableViewCell {
-    static let identifier = "SideMenuTVCell"
+class SettingTVCell: UITableViewCell {
+    static let identifier = "SettingTVCell"
     
     let title = UILabel().then {
         $0.font = .appFont(size: 25)
@@ -37,7 +37,7 @@ class SideMenuTVCell: UITableViewCell {
     }
 }
 
-extension SideMenuTVCell {
+extension SettingTVCell {
     private func configureLayout() {
         contentView.addSubview(title)
         title.snp.makeConstraints {
