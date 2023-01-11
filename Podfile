@@ -7,6 +7,7 @@ def commonPod
   pod 'Alamofire', '~> 5.2'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Kingfisher', '~> 5.0'
+  pod 'Swinject'
   
   #Rx
   pod 'RxSwift', '6.1.0'
@@ -28,4 +29,5 @@ target 'SharePlannerTests' do
   commonPod
   pod 'RxTest'
   pod 'RxBlocking'
+  pod 'RxExpect'
 end

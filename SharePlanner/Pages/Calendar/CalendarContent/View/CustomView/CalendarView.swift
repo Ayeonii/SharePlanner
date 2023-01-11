@@ -186,7 +186,7 @@ class CalendarCVCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
+        configureLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -205,7 +205,7 @@ class CalendarCVCell: UICollectionViewCell {
         self.selectedCoverView.isHidden = true
     }
     
-    private func setupView() {
+    private func configureLayout() {
         selectedCoverView.isHidden = true
         todayNumCoverView.isHidden = true
 

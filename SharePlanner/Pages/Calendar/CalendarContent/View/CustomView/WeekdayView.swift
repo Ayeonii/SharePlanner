@@ -85,14 +85,14 @@ class WeekdayCVCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
+        configureLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupView() {
+    private func configureLayout() {
         addSubview(weekdayLabel)
         weekdayLabel.snp.makeConstraints {
             $0.edges.equalToSuperview()
