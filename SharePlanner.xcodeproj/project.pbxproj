@@ -31,7 +31,6 @@
 		C4A40CE629557F9E007DBB90 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A40CE529557F9E007DBB90 /* CalendarView.swift */; };
 		D60D84C9294EDCB100352677 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84C8294EDCB100352677 /* AppDelegate.swift */; };
 		D60D84CB294EDCB100352677 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84CA294EDCB100352677 /* SceneDelegate.swift */; };
-		D60D84CD294EDCB100352677 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84CC294EDCB100352677 /* ViewController.swift */; };
 		D60D84D5294EDCB200352677 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D60D84D4294EDCB200352677 /* Assets.xcassets */; };
 		D60D84D8294EDCB200352677 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D60D84D6294EDCB200352677 /* LaunchScreen.storyboard */; };
 		D60D84E3294EDCB300352677 /* CalendarContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84E2294EDCB300352677 /* CalendarContainerTests.swift */; };
@@ -83,7 +82,6 @@
 		D60D84C5294EDCB100352677 /* SharePlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharePlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60D84C8294EDCB100352677 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D60D84CA294EDCB100352677 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D60D84CC294EDCB100352677 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D60D84D4294EDCB200352677 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D60D84D7294EDCB200352677 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D60D84D9294EDCB200352677 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -340,7 +338,6 @@
 				C49A01DD29541B320050F561 /* Utils */,
 				D60D84C8294EDCB100352677 /* AppDelegate.swift */,
 				D60D84CA294EDCB100352677 /* SceneDelegate.swift */,
-				D60D84CC294EDCB100352677 /* ViewController.swift */,
 				D60D84D4294EDCB200352677 /* Assets.xcassets */,
 				D60D84D6294EDCB200352677 /* LaunchScreen.storyboard */,
 				D60D84D9294EDCB200352677 /* Info.plist */,
@@ -575,7 +572,6 @@
 				C4A40CE629557F9E007DBB90 /* CalendarView.swift in Sources */,
 				C49A01E1295424420050F561 /* CalendarContentReactor.swift in Sources */,
 				D6BCE814295C05B000931620 /* SideMenuReactor.swift in Sources */,
-				D60D84CD294EDCB100352677 /* ViewController.swift in Sources */,
 				C4A40CDA29554282007DBB90 /* CalendarContentModel.swift in Sources */,
 				D6BCE812295C059C00931620 /* SideMenuVC.swift in Sources */,
 				C49A01E529543D410050F561 /* DimmPresentManager.swift in Sources */,
