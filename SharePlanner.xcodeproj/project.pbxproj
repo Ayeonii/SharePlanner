@@ -35,6 +35,9 @@
 		D60D84D8294EDCB200352677 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D60D84D6294EDCB200352677 /* LaunchScreen.storyboard */; };
 		D60D84E3294EDCB300352677 /* CalendarContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84E2294EDCB300352677 /* CalendarContainerTests.swift */; };
 		D6239DB1296E91B800A2DA53 /* SideMenuTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6239DB0296E91B800A2DA53 /* SideMenuTVCell.swift */; };
+		D6239DB6296EAEA100A2DA53 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6239DB5296EAEA100A2DA53 /* SettingVC.swift */; };
+		D6239DB8296EAEAB00A2DA53 /* SettingReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6239DB7296EAEAB00A2DA53 /* SettingReactor.swift */; };
+		D6239DBB296EAF6B00A2DA53 /* SettingTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6239DBA296EAF6B00A2DA53 /* SettingTVCell.swift */; };
 		D6BCE812295C059C00931620 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BCE811295C059C00931620 /* SideMenuVC.swift */; };
 		D6BCE814295C05B000931620 /* SideMenuReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BCE813295C05B000931620 /* SideMenuReactor.swift */; };
 		D6BCE816295C084B00931620 /* CalendarContentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BCE815295C084B00931620 /* CalendarContentTest.swift */; };
@@ -89,6 +92,9 @@
 		D60D84DE294EDCB300352677 /* SharePlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharePlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60D84E2294EDCB300352677 /* CalendarContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContainerTests.swift; sourceTree = "<group>"; };
 		D6239DB0296E91B800A2DA53 /* SideMenuTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTVCell.swift; sourceTree = "<group>"; };
+		D6239DB5296EAEA100A2DA53 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		D6239DB7296EAEAB00A2DA53 /* SettingReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingReactor.swift; sourceTree = "<group>"; };
+		D6239DBA296EAF6B00A2DA53 /* SettingTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTVCell.swift; sourceTree = "<group>"; };
 		D6BCE811295C059C00931620 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		D6BCE813295C05B000931620 /* SideMenuReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuReactor.swift; sourceTree = "<group>"; };
 		D6BCE815295C084B00931620 /* CalendarContentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContentTest.swift; sourceTree = "<group>"; };
@@ -370,6 +376,8 @@
 		D6239DB2296EA52A00A2DA53 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D6239DB5296EAEA100A2DA53 /* SettingVC.swift */,
+				D6239DB9296EAF4E00A2DA53 /* TableViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -377,6 +385,7 @@
 		D6239DB3296EA52F00A2DA53 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D6239DB7296EAEAB00A2DA53 /* SettingReactor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -386,6 +395,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D6239DB9296EAF4E00A2DA53 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D6239DBA296EAF6B00A2DA53 /* SettingTVCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		D6BCE80E295C057400931620 /* View */ = {
@@ -600,6 +617,7 @@
 			files = (
 				C49A01F629544FB20050F561 /* UIApplication+Extensions.swift in Sources */,
 				C4A40CD629553E0F007DBB90 /* UIColor+Extensions.swift in Sources */,
+				D6239DBB296EAF6B00A2DA53 /* SettingTVCell.swift in Sources */,
 				C4A40CD829553E1A007DBB90 /* UIFont+Extensions.swift in Sources */,
 				C49A01E829543E3E0050F561 /* UINavigationController+Extensions.swift in Sources */,
 				C49A01D82954181E0050F561 /* CalendarContentVC.swift in Sources */,
@@ -610,6 +628,7 @@
 				C4A40CDA29554282007DBB90 /* CalendarContentModel.swift in Sources */,
 				D6BCE812295C059C00931620 /* SideMenuVC.swift in Sources */,
 				C49A01E529543D410050F561 /* DimmPresentManager.swift in Sources */,
+				D6239DB8296EAEAB00A2DA53 /* SettingReactor.swift in Sources */,
 				D60D84C9294EDCB100352677 /* AppDelegate.swift in Sources */,
 				C49A01F429544A1C0050F561 /* CalendarContainerReactor.swift in Sources */,
 				C49A01DF29541B460050F561 /* CustomLog.swift in Sources */,
@@ -623,6 +642,7 @@
 				C40496962966B1FD00FAFEF4 /* ApiError.swift in Sources */,
 				D6239DB1296E91B800A2DA53 /* SideMenuTVCell.swift in Sources */,
 				C49A01E3295430630050F561 /* Scene.swift in Sources */,
+				D6239DB6296EAEA100A2DA53 /* SettingVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
