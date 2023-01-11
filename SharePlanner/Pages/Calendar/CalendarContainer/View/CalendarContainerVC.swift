@@ -71,11 +71,21 @@ class CalendarContainerVC: BaseViewController<CalendarContainerReactor> {
     }
     
     func bindAction(_ reactor: CalendarContainerReactor) {
+        menuBtn.rx.tap
+            .map{ CalendarContainerReactor.Action.showSideMenu }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
         
     }
     
     func bindState(_ reactor: CalendarContainerReactor) {
-        
+        reactor.state
+            .filter{ $0.shouldShowSideMenu }
+            .asDriver{ _ in .never() }
+            .drive(onNext: {[weak self] _ in
+                self?.showSideMenu()
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -171,5 +181,12 @@ extension CalendarContainerVC: UIPageViewControllerDelegate, UIPageViewControlle
                 currentVC.reactor.action.onNext(.setSelectDefault)
             }
         }
+    }
+}
+
+extension CalendarContainerVC {
+    func showSideMenu() {
+        let reactor = SideMenuReactor()
+        self.transition(to: .sideMenu(reactor), using: .dimmPresent(from: .left, dimmColor: UIColor.black.withAlphaComponent(0.2)), animated: true)
     }
 }

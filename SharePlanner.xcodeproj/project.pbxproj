@@ -34,6 +34,7 @@
 		D60D84D5294EDCB200352677 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D60D84D4294EDCB200352677 /* Assets.xcassets */; };
 		D60D84D8294EDCB200352677 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D60D84D6294EDCB200352677 /* LaunchScreen.storyboard */; };
 		D60D84E3294EDCB300352677 /* CalendarContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D84E2294EDCB300352677 /* CalendarContainerTests.swift */; };
+		D6239DB1296E91B800A2DA53 /* SideMenuTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6239DB0296E91B800A2DA53 /* SideMenuTVCell.swift */; };
 		D6BCE812295C059C00931620 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BCE811295C059C00931620 /* SideMenuVC.swift */; };
 		D6BCE814295C05B000931620 /* SideMenuReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BCE813295C05B000931620 /* SideMenuReactor.swift */; };
 		D6BCE816295C084B00931620 /* CalendarContentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BCE815295C084B00931620 /* CalendarContentTest.swift */; };
@@ -87,6 +88,7 @@
 		D60D84D9294EDCB200352677 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D60D84DE294EDCB300352677 /* SharePlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharePlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60D84E2294EDCB300352677 /* CalendarContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContainerTests.swift; sourceTree = "<group>"; };
+		D6239DB0296E91B800A2DA53 /* SideMenuTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTVCell.swift; sourceTree = "<group>"; };
 		D6BCE811295C059C00931620 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		D6BCE813295C05B000931620 /* SideMenuReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuReactor.swift; sourceTree = "<group>"; };
 		D6BCE815295C084B00931620 /* CalendarContentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContentTest.swift; sourceTree = "<group>"; };
@@ -184,6 +186,9 @@
 		C49A01D0295406CA0050F561 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				D6239DB4296EA53400A2DA53 /* Model */,
+				D6239DB3296EA52F00A2DA53 /* ViewModel */,
+				D6239DB2296EA52A00A2DA53 /* View */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -354,10 +359,40 @@
 			path = SharePlannerTests;
 			sourceTree = "<group>";
 		};
+		D6239DAF296E919600A2DA53 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				D6239DB0296E91B800A2DA53 /* SideMenuTVCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		D6239DB2296EA52A00A2DA53 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D6239DB3296EA52F00A2DA53 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D6239DB4296EA53400A2DA53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D6BCE80E295C057400931620 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				D6BCE811295C059C00931620 /* SideMenuVC.swift */,
+				D6239DAF296E919600A2DA53 /* TableView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -586,6 +621,7 @@
 				C49A01ED295449870050F561 /* CalendarContainerVC.swift in Sources */,
 				C49A01DA295418740050F561 /* BaseViewController.swift in Sources */,
 				C40496962966B1FD00FAFEF4 /* ApiError.swift in Sources */,
+				D6239DB1296E91B800A2DA53 /* SideMenuTVCell.swift in Sources */,
 				C49A01E3295430630050F561 /* Scene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,7 +784,7 @@
 				INFOPLIST_FILE = SharePlanner/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -781,7 +817,7 @@
 				INFOPLIST_FILE = SharePlanner/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
