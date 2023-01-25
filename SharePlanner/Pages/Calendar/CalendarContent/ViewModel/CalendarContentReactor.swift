@@ -16,7 +16,7 @@ class CalendarContentReactor: Reactor {
         case setYearMonth(YearMonth)
         case setSelectDefault
         case deselectCell
-        case showAlert
+        case showAlert(String)
     }
     
     enum Mutation {
@@ -27,7 +27,7 @@ class CalendarContentReactor: Reactor {
     
     struct State {
         @Pulse var yearMonth: YearMonth
-        var shouldUpdateDefaultSelect: Bool?
+        var shouldUpdateDefaultSelect: Bool? = nil
         var showAlertWithMsg: String?
     }
     
@@ -54,9 +54,9 @@ class CalendarContentReactor: Reactor {
                 .just(.setUpdateDefaultSelect(nil))
             ])
             
-        case .showAlert:
+        case .showAlert(let msg):
             return .concat([
-                .just(.setAlertMsg("Test!!")),
+                .just(.setAlertMsg(msg)),
                 .just(.setAlertMsg(nil))
             ])
         }
