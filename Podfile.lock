@@ -11,10 +11,6 @@ PODS:
   - RxCocoa (6.1.0):
     - RxRelay (= 6.1.0)
     - RxSwift (= 6.1.0)
-  - RxExpect (1.2.0):
-    - RxCocoa (>= 4.0.0)
-    - RxSwift (>= 4.0.0)
-    - RxTest (>= 4.0.0)
   - RxGesture (4.0.2):
     - RxCocoa (~> 6.0)
     - RxSwift (~> 6.0)
@@ -37,7 +33,6 @@ DEPENDENCIES:
   - Kingfisher (~> 5.0)
   - ReactorKit (= 3.2.0)
   - RxBlocking
-  - RxExpect
   - RxGesture (= 4.0.2)
   - RxKeyboard (= 2.0.0)
   - RxSwift (= 6.1.0)
@@ -54,7 +49,6 @@ SPEC REPOS:
     - ReactorKit
     - RxBlocking
     - RxCocoa
-    - RxExpect
     - RxGesture
     - RxKeyboard
     - RxRelay
@@ -72,7 +66,6 @@ SPEC CHECKSUMS:
   ReactorKit: e8b11d6b9c415405f381669b095c154a05b59eca
   RxBlocking: 602095fba0bce7b16b56ccec89edf780c248b7d9
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
-  RxExpect: 9982ae7345b0083472f3b2492cdbc09525747d64
   RxGesture: f059f2aeef966fb17dad56ee440e76410f10e55f
   RxKeyboard: 4f5863f43b4ff0cbb2a20b94688d6b80c8a43c14
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
@@ -84,6 +77,6 @@ SPEC CHECKSUMS:
   Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: ff2e60e39817311445bac3e55159f969a82b6f48
+PODFILE CHECKSUM: 78e45c4923dff7afe45fb008e3a3fa8b76aa71bd
 
 COCOAPODS: 1.11.3

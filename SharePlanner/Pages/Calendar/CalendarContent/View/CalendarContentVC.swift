@@ -25,6 +25,7 @@ class CalendarContentVC: BaseViewController<CalendarContentReactor> {
     
     lazy var calendarView = CalendarView(frame: .zero, yearMonth: state.yearMonth).then {
         $0.backgroundColor = .clear
+        $0.collectionView.delegate = self
     }
         
     override func viewDidLoad() {
@@ -70,7 +71,7 @@ extension CalendarContentVC {
     
     func bindState(_ reactor: CalendarContentReactor) {
         reactor.pulse(\.$yearMonth)
-            .asDriver{ _ in .never() }
+            .asDriver { _ in .never() }
             .drive(onNext: { [weak self] ym in
                 self?.calendarView.changeDate(ym)
             })
@@ -78,7 +79,7 @@ extension CalendarContentVC {
         
         reactor.state
             .compactMap { $0.shouldUpdateDefaultSelect }
-            .asDriver{ _ in .never() }
+            .asDriver { _ in .never() }
             .drive(onNext: { [weak self] shouldSelect in
                 if shouldSelect {
                     self?.calendarView.updateDefaultSelected()
@@ -90,22 +91,33 @@ extension CalendarContentVC {
     }
 }
 
-extension CalendarContentVC {
-    func generateCollectionViewLayout() -> UICollectionViewLayout {
-        return UICollectionViewCompositionalLayout(section: generateCalendarViewSectionLayout())
+extension CalendarContentVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
     
-    func generateCalendarViewSectionLayout() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(300))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width / 7
+        let height = collectionView.frame.height / CGFloat(calendarView.numberOfWeeks)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(UIScreen.main.bounds.width), heightDimension: .estimated(300))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? CalendarCVCell else { return }
         
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .none
-        section.interGroupSpacing = 2
+        guard !cell.isToday else { return }
+        calendarView.selectedIndexPath = indexPath
+        cell.setSelected(isSelect: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? CalendarCVCell else { return }
         
-        return section
+        cell.setSelected(isSelect: false)
     }
 }
