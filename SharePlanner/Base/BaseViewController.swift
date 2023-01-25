@@ -245,3 +245,54 @@ extension BaseViewControllerClass {
         }
     }
 }
+
+enum DismissAlertCompletionTime {
+    case begin, middle, end
+}
+
+//MARK: - Alert
+extension BaseViewControllerClass {
+    ///Dismiss Alert After Specific Time
+    func dismissableAlert(message: String,
+                          when start: DismissAlertCompletionTime = .begin,
+                          error: Error? = nil,
+                          completion: (() -> Void)? = nil) {
+        
+        var msg = message
+        let duration: TimeInterval = 2.0
+        switch start {
+        case .begin:
+            completion?()
+        case .middle:
+            DispatchQueue.main.asyncAfter(deadline: .now() + duration/2) {
+                completion?()
+            }
+        case .end:
+            DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+                completion?()
+            }
+        }
+
+        BottomToastView.shared.show(message: msg, duration: duration)
+    }
+    
+    func showAlert(msg: String?, actions: [UIAlertAction?], style: UIAlertController.Style) {
+        let alert = UIAlertController(title: nil, message: msg, preferredStyle: style)
+        
+        actions.forEach {
+            if let action = $0 {
+                alert.addAction(action)
+            }
+        }
+        
+        if style == .actionSheet {
+            alert.setAlertColor(titleColor: .black, backgroundColor: .white)
+        } else {
+            if self.traitCollection.userInterfaceStyle == .light {
+                alert.setAlertBackgroundColor(.white)
+            }
+        }
+        self.present(alert, animated: true)
+    }
+}
+
