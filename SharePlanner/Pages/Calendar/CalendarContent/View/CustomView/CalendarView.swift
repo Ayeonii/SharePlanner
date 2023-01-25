@@ -28,7 +28,6 @@ class CalendarView: UIView {
         $0.backgroundColor = .clear
         $0.showsHorizontalScrollIndicator = false
         $0.allowsSelection = true
-        $0.delegate = self
         $0.dataSource = self
         $0.register(CalendarCVCell.self, forCellWithReuseIdentifier: CalendarCVCell.identifier)
     }
@@ -123,37 +122,6 @@ extension CalendarView: UICollectionViewDataSource {
         cell.cellNum = date
        
         return cell
-    }
-}
-
-extension CalendarView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width / 7
-        let height = collectionView.frame.height / CGFloat(numberOfWeeks)
-        
-        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? CalendarCVCell else { return }
-        
-        guard !cell.isToday else { return }
-        selectedIndexPath = indexPath
-        cell.setSelected(isSelect: true)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? CalendarCVCell else { return }
-        
-        cell.setSelected(isSelect: false)
     }
 }
 

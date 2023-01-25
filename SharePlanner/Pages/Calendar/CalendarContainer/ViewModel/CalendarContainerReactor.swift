@@ -10,9 +10,8 @@ import RxSwift
 import ReactorKit
 
 class CalendarContainerReactor: Reactor {
-    let disposeBag = DisposeBag()
-   
-    enum Action {
+    
+    enum Action: Equatable {
         case changeCurrentYM(YearMonth)
         case showSideMenu
     }
