@@ -26,6 +26,7 @@ class CalendarContentReactor: Reactor {
     }
     
     struct State {
+        var oldMonth: YearMonth?
         @Pulse var yearMonth: YearMonth
         var shouldUpdateDefaultSelect: Bool? = nil
         var showAlertWithMsg: String?
@@ -67,6 +68,7 @@ class CalendarContentReactor: Reactor {
         
         switch mutation {
         case .setYearMonth(let ym):
+            newState.oldMonth = state.yearMonth
             newState.yearMonth = ym
             
         case .setUpdateDefaultSelect(let shouldUpdate):

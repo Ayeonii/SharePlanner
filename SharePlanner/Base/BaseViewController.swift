@@ -258,7 +258,6 @@ extension BaseViewControllerClass {
                           error: Error? = nil,
                           completion: (() -> Void)? = nil) {
         
-        var msg = message
         let duration: TimeInterval = 2.0
         switch start {
         case .begin:
@@ -273,7 +272,7 @@ extension BaseViewControllerClass {
             }
         }
 
-        BottomToastView.shared.show(message: msg, duration: duration)
+        BottomToastView.shared.show(message: message, duration: duration)
     }
     
     func showAlert(msg: String?, actions: [UIAlertAction?], style: UIAlertController.Style) {

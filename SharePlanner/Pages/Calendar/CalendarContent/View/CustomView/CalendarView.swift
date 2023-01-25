@@ -54,6 +54,10 @@ class CalendarView: UIView {
         collectionView.reloadData()
     }
     
+    func changeJustDay(_ yearMonth: YearMonth) {
+        self.presentYM = yearMonth
+    }
+    
     func updateDefaultSelected() {
         guard presentYM != todayYM else { return }
         let startWeekdayOfMonthIndex = getFirstWeekday - 1

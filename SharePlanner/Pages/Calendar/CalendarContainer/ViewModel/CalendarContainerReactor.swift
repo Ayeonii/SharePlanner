@@ -10,27 +10,29 @@ import RxSwift
 import ReactorKit
 
 class CalendarContainerReactor: Reactor {
-    
     enum Action: Equatable {
         case changeCurrentYM(YearMonth)
         case showSideMenu
+        case showRegister(YearMonth)
     }
     
     enum Mutation {
         case setCurrentYM(YearMonth)
         case setShowSideMenu(Bool)
+        case setShowRegister(YearMonth?)
     }
     
     struct State {
         var currentYM: YearMonth
         var shouldShowSideMenu: Bool = false
+        var registerDate: YearMonth?
     }
     
     var initialState: State
     
     init() {
-        let currentDate =  Date()
-        initialState = State(currentYM: YearMonth(year: currentDate.year, month: currentDate.monthType))
+        let currentDate = Date()
+        initialState = State(currentYM: YearMonth(date: currentDate))
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -40,6 +42,9 @@ class CalendarContainerReactor: Reactor {
             
         case .showSideMenu:
             return showSideMenuAction()
+            
+        case .showRegister(let date):
+            return showRegisterAction(date: date)
         }
     }
     
@@ -52,6 +57,9 @@ class CalendarContainerReactor: Reactor {
             
         case .setShowSideMenu(let shouldShow):
             newState.shouldShowSideMenu = shouldShow
+            
+        case .setShowRegister(let date):
+            newState.registerDate = date
         }
         
         return newState
@@ -63,6 +71,13 @@ extension CalendarContainerReactor {
         return .concat([
             .just(.setShowSideMenu(true)),
             .just(.setShowSideMenu(false))
+        ])
+    }
+    
+    func showRegisterAction(date: YearMonth) -> Observable<Mutation> {
+        return .concat([
+            .just(.setShowRegister(date)),
+            .just(.setShowRegister(nil))
         ])
     }
 }

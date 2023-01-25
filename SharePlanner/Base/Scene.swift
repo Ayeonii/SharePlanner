@@ -11,6 +11,7 @@ import UIKit
 enum Scene {
     case calendarContainer(CalendarContainerReactor)
     case calendar(CalendarContentReactor)
+    case calendarRegister(CalendarRegisterReactor)
     case sideMenu(SideMenuReactor)
     case setting(SettingReactor)
 }
@@ -26,6 +27,12 @@ extension Scene {
             
         case .calendar(let reactor):
             let vc = CalendarContentVC(reactor: reactor)
+            vc.bind(reactor: reactor)
+            
+            return vc
+            
+        case .calendarRegister(let reactor):
+            let vc = CalendarRegisterVC(reactor: reactor)
             vc.bind(reactor: reactor)
             
             return vc

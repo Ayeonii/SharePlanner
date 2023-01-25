@@ -42,6 +42,10 @@ class CalendarContainerVC: BaseViewController<CalendarContainerReactor> {
         $0.setBackgroundImage(UIImage(named: "menuIcon"), for: .normal)
     }
     
+    let floatingButton = UIButton().then {
+        $0.setBackgroundImage(UIImage(named: "plusCircle"), for: .normal)
+    }
+    
     var yearLabel = UILabel().then {
         $0.text = "\(Date().year)"
         $0.textAlignment = .center
@@ -70,9 +74,23 @@ class CalendarContainerVC: BaseViewController<CalendarContainerReactor> {
         self.setupPageControllerLayout()
     }
     
+    override func configureLayer() {
+        self.floatingButton.layer.cornerRadius = self.floatingButton.bounds.height / 2
+    }
+    
     func bindAction(_ reactor: CalendarContainerReactor) {
         menuBtn.rx.tap
             .map{ CalendarContainerReactor.Action.showSideMenu }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        floatingButton.rx.tap
+            .compactMap{ [weak self] in
+                guard let self = self,
+                      let currentVC = self.pageController.viewControllers?.first as? CalendarContentVC else { return nil }
+                
+                return CalendarContainerReactor.Action.showRegister(currentVC.state.yearMonth)
+            }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
@@ -86,20 +104,36 @@ class CalendarContainerVC: BaseViewController<CalendarContainerReactor> {
                 self?.showSideMenu()
             })
             .disposed(by: disposeBag)
+        
+        reactor.state
+            .compactMap{ $0.registerDate }
+            .asDriver{ _ in .never() }
+            .drive(onNext: { [weak self] date in
+                self?.showRegisterCalendar(date: date)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
 extension CalendarContainerVC {
     func setupTopViewLayout() {
         self.view.addSubview(topNaviView)
+        self.pageController.view.addSubview(floatingButton)
         self.topNaviView.addSubview(menuBtn)
         self.topNaviView.addSubview(yearLabel)
         self.topNaviView.addSubview(monthBtn)
+        
         
         topNaviView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(52)
+        }
+        
+        floatingButton.snp.makeConstraints {
+            $0.width.height.equalTo(53)
+            $0.right.equalToSuperview().offset(-20)
+            $0.bottom.equalToSuperview().offset(-55)
         }
         
         menuBtn.snp.makeConstraints {
@@ -121,7 +155,7 @@ extension CalendarContainerVC {
             $0.bottom.equalTo(monthBtn.snp.top).offset(12)
         }
     }
-    
+  
     func setupPageController() {
         pageController.setViewControllers([vcArray[1]], direction: .forward, animated: true)
     }
@@ -188,5 +222,10 @@ extension CalendarContainerVC {
     func showSideMenu() {
         let reactor = SideMenuReactor()
         self.transition(to: .sideMenu(reactor), using: .dimmPresent(from: .left, dimmColor: UIColor.black.withAlphaComponent(0.2)), animated: true)
+    }
+    
+    func showRegisterCalendar(date: YearMonth) {
+        let reactor = CalendarRegisterReactor(ym: date)
+        self.transition(to: .calendarRegister(reactor), using: .present, animated: true)
     }
 }

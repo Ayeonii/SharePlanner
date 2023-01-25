@@ -10,6 +10,9 @@
 		3439C500E3B517EE1D0BA7D9 /* Pods_SharePlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDC8C412726B522F4A236230 /* Pods_SharePlanner.framework */; };
 		C40496942966B14A00FAFEF4 /* HttpApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40496932966B14A00FAFEF4 /* HttpApiManager.swift */; };
 		C40496962966B1FD00FAFEF4 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40496952966B1FD00FAFEF4 /* ApiError.swift */; };
+		C499FEDB29810F8C00D16DA5 /* CalendarRegisterReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C499FEDA29810F8C00D16DA5 /* CalendarRegisterReactor.swift */; };
+		C499FEDD29810F9600D16DA5 /* CalendarRegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C499FEDC29810F9600D16DA5 /* CalendarRegisterModel.swift */; };
+		C499FEDF29810FB000D16DA5 /* CalendarRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C499FEDE29810FB000D16DA5 /* CalendarRegisterVC.swift */; };
 		C49A01D82954181E0050F561 /* CalendarContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A01D72954181E0050F561 /* CalendarContentVC.swift */; };
 		C49A01DA295418740050F561 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A01D9295418740050F561 /* BaseViewController.swift */; };
 		C49A01DF29541B460050F561 /* CustomLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A01DE29541B460050F561 /* CustomLog.swift */; };
@@ -67,6 +70,9 @@
 		BB8F17BE6C9812D0435826A8 /* Pods-SharePlanner-SharePlannerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePlanner-SharePlannerUITests.release.xcconfig"; path = "Target Support Files/Pods-SharePlanner-SharePlannerUITests/Pods-SharePlanner-SharePlannerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C40496932966B14A00FAFEF4 /* HttpApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpApiManager.swift; sourceTree = "<group>"; };
 		C40496952966B1FD00FAFEF4 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		C499FEDA29810F8C00D16DA5 /* CalendarRegisterReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRegisterReactor.swift; sourceTree = "<group>"; };
+		C499FEDC29810F9600D16DA5 /* CalendarRegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRegisterModel.swift; sourceTree = "<group>"; };
+		C499FEDE29810FB000D16DA5 /* CalendarRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRegisterVC.swift; sourceTree = "<group>"; };
 		C49A01D72954181E0050F561 /* CalendarContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContentVC.swift; sourceTree = "<group>"; };
 		C49A01D9295418740050F561 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C49A01DE29541B460050F561 /* CustomLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLog.swift; sourceTree = "<group>"; };
@@ -155,6 +161,40 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C499FED429810F4900D16DA5 /* CalnedarRegister */ = {
+			isa = PBXGroup;
+			children = (
+				C499FED729810F6D00D16DA5 /* Model */,
+				C499FED629810F6900D16DA5 /* ViewModel */,
+				C499FED529810F6500D16DA5 /* View */,
+			);
+			path = CalnedarRegister;
+			sourceTree = "<group>";
+		};
+		C499FED529810F6500D16DA5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C499FEDE29810FB000D16DA5 /* CalendarRegisterVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C499FED629810F6900D16DA5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C499FEDA29810F8C00D16DA5 /* CalendarRegisterReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C499FED729810F6D00D16DA5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C499FEDC29810F9600D16DA5 /* CalendarRegisterModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C49A01CB295406550050F561 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +229,7 @@
 			children = (
 				C49A01EE295449EC0050F561 /* CalendarContainer */,
 				C49A01EF295449F60050F561 /* CalendarContent */,
+				C499FED429810F4900D16DA5 /* CalnedarRegister */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -675,6 +716,7 @@
 				C4A40CD629553E0F007DBB90 /* UIColor+Extensions.swift in Sources */,
 				D6239DBB296EAF6B00A2DA53 /* SettingTVCell.swift in Sources */,
 				C4A40CD829553E1A007DBB90 /* UIFont+Extensions.swift in Sources */,
+				C499FEDB29810F8C00D16DA5 /* CalendarRegisterReactor.swift in Sources */,
 				C4A6650B2978DC6C00A7BC97 /* UIAlertController+Extensions.swift in Sources */,
 				C49A01E829543E3E0050F561 /* UINavigationController+Extensions.swift in Sources */,
 				C49A01D82954181E0050F561 /* CalendarContentVC.swift in Sources */,
@@ -688,6 +730,7 @@
 				C49A01E529543D410050F561 /* DimmPresentManager.swift in Sources */,
 				D6239DB8296EAEAB00A2DA53 /* SettingReactor.swift in Sources */,
 				D60D84C9294EDCB100352677 /* AppDelegate.swift in Sources */,
+				C499FEDF29810FB000D16DA5 /* CalendarRegisterVC.swift in Sources */,
 				C49A01F429544A1C0050F561 /* CalendarContainerReactor.swift in Sources */,
 				C49A01DF29541B460050F561 /* CustomLog.swift in Sources */,
 				C4A40CE0295576D9007DBB90 /* Date+Extensions.swift in Sources */,
@@ -702,6 +745,7 @@
 				C40496962966B1FD00FAFEF4 /* ApiError.swift in Sources */,
 				D6239DB1296E91B800A2DA53 /* SideMenuTVCell.swift in Sources */,
 				C49A01E3295430630050F561 /* Scene.swift in Sources */,
+				C499FEDD29810F9600D16DA5 /* CalendarRegisterModel.swift in Sources */,
 				D6239DB6296EAEA100A2DA53 /* SettingVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
