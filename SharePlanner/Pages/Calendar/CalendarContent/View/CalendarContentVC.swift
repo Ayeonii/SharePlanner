@@ -13,7 +13,7 @@ import SnapKit
 import Then
 
 class CalendarContentVC: BaseViewController<CalendarContentReactor> {
-
+    
     let backgroundImage = UIImageView().then {
         $0.image = UIImage(named: "sketchImage")
         $0.backgroundColor = .clear
@@ -66,14 +66,18 @@ class CalendarContentVC: BaseViewController<CalendarContentReactor> {
 extension CalendarContentVC {
     
     func bindAction(_ reactor: CalendarContentReactor) {
-    
+        
     }
     
     func bindState(_ reactor: CalendarContentReactor) {
         reactor.pulse(\.$yearMonth)
             .asDriver { _ in .never() }
             .drive(onNext: { [weak self] ym in
-                self?.calendarView.changeDate(ym)
+                if self?.state.oldMonth?.month == ym.month {
+                    self?.calendarView.changeJustDay(ym)
+                } else {
+                    self?.calendarView.changeDate(ym)
+                }
             })
             .disposed(by: disposeBag)
         
@@ -113,6 +117,9 @@ extension CalendarContentVC: UICollectionViewDelegate, UICollectionViewDelegateF
         guard !cell.isToday else { return }
         calendarView.selectedIndexPath = indexPath
         cell.setSelected(isSelect: true)
+        
+        let selectedDate = YearMonth(year: state.yearMonth.year, month: state.yearMonth.month, day: cell.cellNum ?? 1)
+        reactor.action.onNext(.setYearMonth(selectedDate))
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
